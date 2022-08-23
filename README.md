@@ -13,3 +13,6 @@ En este proyecto consumiremos el API de PokeAPI
 
 ## Blobmaker
 [Enlace Blobmaker](https://www.blobmaker.app/)
+
+## Despliegue de Pokedex
+[enlace](https://szuluaga-beep.github.io/pokedex/)
