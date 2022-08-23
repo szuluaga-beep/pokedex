@@ -1,3 +1,9 @@
-.card-pokemon{
+.card-pokemon {
      width: 300px;
+}
+
+.img-container {
+     background-image: url("../src/assets/blob.svg");
+     background-repeat: no-repeat;
+     background-position: center;
 }
