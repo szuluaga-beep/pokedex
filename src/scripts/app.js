@@ -101,4 +101,26 @@ const stats = (stats) => {
     // console.log(stats)
   return statsContainer;
 };
+
+previous.addEventListener("click", () => {
+  if (min != 1) {
+    min -= 8;
+    removeChildNodes(pokemonContainer);
+    fetchPokemons(min, max);
+     }
+     
+});
+
+next.addEventListener("click", () => {
+  min += 8;
+  removeChildNodes(pokemonContainer);
+  fetchPokemons(min, max);
+});
+
+const removeChildNodes = (parent) => {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+};
+
 fetchPokemons(min, max);
