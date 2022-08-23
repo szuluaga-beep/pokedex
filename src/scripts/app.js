@@ -22,7 +22,7 @@ const createPokemon = (poke) => {
      const card = document.createElement('div')
      card.classList.add('card',"m-5","p-5")
      card.classList.add("card-pokemon");
-     
+
      const name = document.createElement('h3')
      name.innerHTML = poke.name
      name.classList.add('text-center','fw-bolder')
@@ -31,13 +31,17 @@ const createPokemon = (poke) => {
      number.textContent = `# ${poke.id.toString().padStart(3, 0)}`;
      number.classList.add("text-center", "fw-bolder");
 
+     const imageContainer = document.createElement('div')
+     imageContainer.classList.add('img-container')
+     
      const imagePoke = document.createElement('img')
      imagePoke.src = poke.sprites.other.home.front_default;
      imagePoke.classList.add('card-img-top')
+     imageContainer.appendChild(imagePoke);
 
      card.appendChild(name)
      card.appendChild(number)
-     card.appendChild(imagePoke)
+     card.appendChild(imageContainer)
      pokemContainer.classList.add("d-flex", "flex-wrap")
      pokemContainer.appendChild(card)
 }
