@@ -31,7 +31,7 @@ const createPokemon = (poke) => {
 
   const card = document.createElement("div");
   //card.classList.add("card", "m-5", "p-5", "pokemon-block");
-  card.classList.add("card-pokemon", "pokemon-block");
+  card.classList.add("pokemon-block");
 
   const cardContainer = document.createElement("div");
   cardContainer.classList.add("card-container");
