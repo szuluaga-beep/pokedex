@@ -3,7 +3,11 @@ const pokemonContainer = document.querySelector("#containerPokemon");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 
-pokemonContainer.classList.add("d-flex", "flex-wrap","justify-content-between");
+pokemonContainer.classList.add(
+  "d-flex",
+  "flex-wrap",
+  "justify-content-between"
+);
 
 let max = 7;
 let min = 1;
@@ -23,7 +27,7 @@ const fetchPokemons = (min, max) => {
 
 const createPokemon = (poke) => {
   const flipCard = document.createElement("div");
-  flipCard.classList.add("flip-card","mb-4");
+  flipCard.classList.add("flip-card", "mb-4");
 
   const card = document.createElement("div");
   //card.classList.add("card", "m-5", "p-5", "pokemon-block");
@@ -54,7 +58,7 @@ const createPokemon = (poke) => {
 
   const cardBack = document.createElement("div");
   cardBack.classList.add("pokemon-block-back");
-  cardBack.innerHTML = poke.stats[0].base_stat;
+  cardBack.appendChild(stats(poke.stats));
 
   cardContainer.appendChild(card);
   cardContainer.appendChild(cardBack);
@@ -62,4 +66,39 @@ const createPokemon = (poke) => {
   pokemonContainer.appendChild(flipCard);
 };
 
+const stats = (stats) => {
+  const statsContainer = document.createElement("div");
+  
+     for (let index = 0; index < 6; index++) {
+          const stat = stats[index];
+          
+          const statPercent = stat.base_stat  + "%";
+          const statContainer = document.createElement("section");
+          statContainer.classList.add("stat-container");
+
+          const statName = document.createElement("p");
+          statName.textContent = stat.stat.name;
+
+          const progress = document.createElement("div");
+          progress.classList.add("progress");
+
+          const progressBar = document.createElement("div");
+          progressBar.classList.add("progress-bar");
+          progressBar.classList.add("progress-bar-striped");
+          progressBar.setAttribute("aria-valuenow", stat.base_stat);
+          progressBar.setAttribute("aria-valuemin", 0);
+          progressBar.setAttribute("aria-valuemax", 100);
+          progressBar.style.width = statPercent;
+
+          progressBar.textContent = stat.base_stat;
+
+          progress.appendChild(progressBar);
+          statContainer.appendChild(statName);
+          statContainer.appendChild(progress);
+
+          statsContainer.appendChild(statContainer);
+     }
+    // console.log(stats)
+  return statsContainer;
+};
 fetchPokemons(min, max);
